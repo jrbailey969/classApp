@@ -6,6 +6,7 @@ var webpackMerge = require('webpack-merge');
 var webpackConfig = {
   entry: {
     'main': './src/main.browser.ts',
+    'maintest': './src/main.spec.ts'
   },
 
   output: {
@@ -45,7 +46,7 @@ var webpackConfig = {
 
 // Our Webpack Defaults
 var defaultConfig = {
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 
   output: {
     filename: '[name].bundle.js',

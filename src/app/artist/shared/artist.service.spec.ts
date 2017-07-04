@@ -15,4 +15,12 @@ describe('ArtistService', () => {
         expect(artists[0].id).toEqual('1');
         expect(artists[0].name).toEqual('Amy Winehouse');
     });
+
+    it('#getById should return specific artist', () => {
+        let artist = artistService.getById('2');
+
+        expect(artist).toBeDefined();
+        expect(artist.id).toEqual('2');
+        expect(artist.name).toEqual('Beastie Boys');
+    });
 });
