@@ -5,16 +5,21 @@ import { ARTISTS } from './artist.mock-data';
 
 @Injectable()
 export class ArtistService {
+    private artists: Artist[];
+
+    constructor() {
+        this.artists = ARTISTS.slice(0);
+    }
     getList(): Artist[] {
-        return ARTISTS;
+        return this.artists;
     }
 
     getById(id: string): Artist {
-        return ARTISTS.find((a) => a.id === id);
+        return this.artists.find((a) => a.id === id);
     }
 
     add(artist: Artist): void {
-        ARTISTS.push(artist);
+        this.artists.push(artist);
     }
 
     update(artist: Artist): void {
@@ -25,9 +30,9 @@ export class ArtistService {
     }
 
     delete(artist: Artist): void {
-        let index = ARTISTS.indexOf(artist);
+        let index = this.artists.indexOf(artist);
         if (index >= 0) {
-            ARTISTS.splice(index, 1);
+            this.artists.splice(index, 1);
         }
     }
 }

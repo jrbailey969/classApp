@@ -7,9 +7,12 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { ArtistListComponent } from './artists/artist-list/artist-list.component';
+
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'artists', component: ArtistListComponent },
   { path: 'about', component: AboutComponent },
   { path: 'github', component: RepoBrowserComponent,
     children: [
