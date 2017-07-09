@@ -6,8 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // Webpack Config
 var webpackConfig = {
   entry: {
-    'main': './src/main.browser.ts',
-    'maintest': './src/main.spec.ts'
+    'main': './src/main.browser.ts'
   },
 
   output: {
@@ -52,8 +51,21 @@ var webpackConfig = {
 
 // Our Webpack Defaults
 var defaultConfig = {
-  devtool: 'inline-source-map',
-
+  debug: false,
+  devtool: 'source-map',
+  //options: {
+    // htmlLoader: {
+    //         caseSensitive: true,
+    //         customAttributeAssign: [/\)?\]?=/],
+    //         customAttributeSurround: [
+    //             [/#/, /(?:)/],
+    //             [/\*/, /(?:)/],
+    //             [/\[?\(?/, /(?:)/]
+    //         ],
+    //         minimize: true,
+    //         removeAttributeQuotes: false
+    // }
+  //},
   output: {
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
@@ -64,17 +76,6 @@ var defaultConfig = {
     extensions: [ '.ts', '.js' ],
     modules: [ path.resolve(__dirname, 'node_modules') ]
   },
-
-  devServer: {
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 },
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
-  },
-
   node: {
     global: true,
     crypto: 'empty',
